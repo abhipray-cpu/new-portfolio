@@ -1,5 +1,5 @@
 <template>
-    <div class="hidden md:flex flex-row justify-around pt-3 w-100">
+    <div class="hidden md:flex flex-row justify-around pt-3 w-100 ">
         <h2 class="text-4xl text-white ml-3 icon font-ingrid">Dumka</h2>
         <div class="flex flex-row justify-between ml-[25vw] gap-5 pt-1 ">
             <h3 :class="{ 'text-light1 hover:text-light2': isDarkTheme, 'text-dark1 hover:text-dark2': !isDarkTheme }"
