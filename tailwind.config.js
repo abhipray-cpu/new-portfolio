@@ -7,16 +7,26 @@ export default {
     darkMode: 'class',
     theme: {
         extend: {
+            keyframes: {
+                'slide-left': {
+                    from: { transform: 'translateX(0)' },
+                    to: { transform: 'translateX(-100%)' },
+                },
+            },
+            animation: {
+                'slide-left-infinite': 'slide-left 15s linear infinite',
+            },
             fontFamily: {
                 ingrid: ['Ingrid Darling'],
                 inter: ['Inter'],
                 'inter-normal': ['Inter', 400],
-                'inter-bold': ['Inter', 700]
+                'inter-semi': ['Inter', 500],
+                'inter-bold': ['Inter', 800]
             },
         },
     },
     breakpoints: {
-        'sm': '480px',
+        'sm': '600px',
         'md': '768px',
         'lg': '976px',
         'xl': '1440px',
