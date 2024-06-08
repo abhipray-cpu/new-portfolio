@@ -25,7 +25,8 @@
         </icon-comp>
       </div>
       <div class="sm:hidden ml-10">
-        <Vue3Lottie :animationData="CatJSON" :height="250" :width="250" :loop="true" :autoplay="true" speed="1" />
+        <Vue3Lottie :animationData="CatJSON" :height="250" :width="250" :loop="true" :autoplay="true" speed="1"
+          @click="toggle" />
       </div>
     </section>
     <!--section2-->
@@ -82,10 +83,14 @@ export default {
     const isDark = computed(() => {
       return store.getters.getTheme === "dark";
     });
+    const toggle = () => {
+      store.commit('setTheme')
+    }
     return {
       isDark,
       RobotJSON,
       CatJSON,
+      toggle
     };
   },
 };

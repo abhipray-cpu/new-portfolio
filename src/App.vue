@@ -1,47 +1,32 @@
 <template>
   <div v-if="Welcome" class="w-100 h-100 flex flex-col items-center justify-center">
-    <Vue3Lottie
-      :animationData="WelcomeJSON"
-      :height="400"
-      :width="400"
-      :loop="true"
-      :autoplay="true"
-      speed="2"
-    />
+    <Vue3Lottie :animationData="WelcomeJSON" :height="400" :width="400" :loop="true" :autoplay="true" speed="2" />
   </div>
-  <div
-    class="main-container absolute inset-0 top-0 left-0 overflow-x-hidden w-full flex flex-col pb-10 md:pb-20"
-    :class="{ 'bg-light': isDarkTheme, 'bg-dark': !isDarkTheme }"
-    v-else
-  >
+  <div class="main-container absolute inset-0 top-0 left-0 overflow-x-hidden w-full flex flex-col pb-10 md:pb-20"
+    :class="{ 'bg-light': isDarkTheme, 'bg-dark': !isDarkTheme }" v-else>
     <cursor-highlight />
     <div class="dot" ref="dot"></div>
     <header-comp></header-comp>
     <home-page></home-page>
     <about-page></about-page>
     <skills-page></skills-page>
-    <h1
-      :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
-      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7"
-    >
+    <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
+      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7">
       Qualifications
     </h1>
     <qualification-page></qualification-page>
-    <h1
-      :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
-      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7"
-    >
+    <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
+      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7">
       Work Experience
     </h1>
     <experience-page></experience-page>
     <work-page></work-page>
-    <h1
-      :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
-      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-6 md:mt-12 md:mb-7"
-    >
+    <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
+      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-6 md:mt-12 md:mb-7">
       My Projects
     </h1>
     <portfolio-page></portfolio-page>
+    <connect-page></connect-page>
   </div>
 </template>
 
@@ -58,6 +43,7 @@ import ExperiencePage from "./pages/ExperiencePage.vue";
 import PortfolioPage from "./pages/PortfolioPage.vue";
 import { Vue3Lottie } from "vue3-lottie";
 import WelcomeJSON from "./assets/lottie/Welcome.json";
+import ConnectPage from "./pages/ConnectPage.vue";
 export default {
   components: {
     HeaderComp,
@@ -67,6 +53,7 @@ export default {
     QualificationPage,
     ExperiencePage,
     PortfolioPage,
+    ConnectPage,
     WorkPage,
     Vue3Lottie,
   },
