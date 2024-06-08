@@ -11,8 +11,12 @@
   "dependencies": {
     "@growthbunker/vuetimeline": "^0.1.17",
     "@vueuse/core": "^10.10.0",
+    "swiper": "^11.1.4",
     "vue": "^3.4.21",
+    "vue-carousel": "^0.18.0",
     "vue-router": "^4.3.2",
+    "vue-slick-carousel": "^1.0.6",
+    "vue3-carousel": "^0.3.3",
     "vue3-lottie": "^3.3.0",
     "vuex": "^4.0.2"
   },
