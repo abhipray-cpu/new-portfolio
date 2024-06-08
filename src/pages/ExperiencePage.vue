@@ -7,20 +7,22 @@
       ></div>
 
       <div class="tl-year">
-        <p class="f2 heading--sanSerif">2023</p>
+        <p class="f2 heading--sanSerif">2024</p>
       </div>
 
       <div class="tl-content">
         <h1 class="f3 text--accent ttu text-center text-lg md:text-2xl">
-          B.E Electronics & Communication
+          Software Engineer
         </h1>
         <p>
-          My BE in ECE was more than just a degree; it ignited my passion for software
-          engineering and robotics.
+          At Textile Traders, I wear multiple hats as a Product Owner and Software
+          Engineer, actively shaping the startup's trajectory.
           <span class="hidden md:block">
-            Immersed in cutting-edge technology, I discovered the thrill of creating
-            intelligent systems and innovative solutions. This journey propelled me
-            towards a future where innovation knows no bounds.
+            As a Product Owner, I gather requirements and steer the product development
+            process, ensuring alignment with our vision. Concurrently, I leverage my
+            software engineering skills to work on backend development, bridging the gap
+            between ideation and implementation, thereby fueling the growth of our
+            venture.
           </span>
         </p>
       </div>
@@ -32,17 +34,22 @@
       ></div>
 
       <div class="tl-year">
-        <p class="f2 heading--sanSerif">2018</p>
+        <p class="f2 heading--sanSerif">2023</p>
       </div>
 
       <div class="tl-content">
-        <h1 class="f3 text--accent ttu text-center text-lg md:text-2xl">XII 90%</h1>
+        <h1 class="f3 text--accent ttu text-center text-lg md:text-2xl">
+          Software Engineer
+        </h1>
         <p>
-          I completed my 12th with PCM (Physics, Chemistry, and Mathematics), paving the
-          way for a future rooted in scientific exploration and mathematical reasoning.
+          At Kuvak Tech, I embraced the role of a software engineer from September to
+          December 2023, where I had the opportunity to directly contribute to client
+          projects.
           <span class="hidden md:block">
-            Throughout my academic pursuit, I immersed myself in the intricacies of these
-            subjects, fostering a passion for problem-solving and analytical thinking.
+            This hands-on experience enabled me to refine my problem-solving abilities and
+            collaborate effectively within a dynamic team environment. With each project,
+            I delved deeper into the intricacies of software development, honing my skills
+            and gaining invaluable real-world experience.
           </span>
         </p>
       </div>
@@ -54,18 +61,21 @@
       ></div>
 
       <div class="tl-year">
-        <p class="f2 heading--sanSerif">2016</p>
+        <p class="f2 heading--sanSerif">2023</p>
       </div>
 
       <div class="tl-content">
-        <h1 class="f3 text--accent ttu text-center text-lg md:text-2xl">X 94.5%</h1>
+        <h1 class="f3 text--accent ttu text-center text-lg md:text-2xl">
+          Developer Intern
+        </h1>
         <p>
-          I completed my 10th at St. Joseph's Convent School, marking a significant
-          milestone in my academic journey.
-          <span class="hidden md:block"
-            >With a focus on science subjects, I delved deep into the realms of physics,
-            chemistry, and biology, broadening my understanding of the natural
-            world.</span
+          At Newton School, I immersed myself in the world of software development as a
+          full-stack intern from February 2023 to July 2023.
+          <span class="hidden md:block">
+            This invaluable experience sharpened my coding skills and deepened my
+            understanding of web development frameworks. Working alongside seasoned
+            professionals, I gained insights into industry best practices, setting the
+            stage for my career in tech.</span
           >
         </p>
       </div>

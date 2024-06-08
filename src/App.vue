@@ -10,7 +10,14 @@
     <home-page></home-page>
     <about-page></about-page>
     <skills-page></skills-page>
+    <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
+      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7">Qualifications
+    </h1>
     <qualification-page></qualification-page>
+    <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
+      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7">Work Experience
+    </h1>
+    <experience-page></experience-page>
     <work-page></work-page>
   </div>
 </template>
@@ -24,6 +31,7 @@ import AboutPage from "./pages/AboutPage.vue";
 import SkillsPage from './pages/SkillsPage.vue'
 import WorkPage from './pages/WorkPage.vue'
 import QualificationPage from './pages/QualificationPage.vue'
+import ExperiencePage from "./pages/ExperiencePage.vue";
 import { Vue3Lottie } from "vue3-lottie";
 import WelcomeJSON from "./assets/lottie/Welcome.json";
 export default {
@@ -33,6 +41,7 @@ export default {
     AboutPage,
     SkillsPage,
     QualificationPage,
+    ExperiencePage,
     WorkPage,
     Vue3Lottie,
   },

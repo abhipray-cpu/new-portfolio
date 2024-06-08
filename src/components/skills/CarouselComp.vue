@@ -3,9 +3,11 @@
         <h2 class="text-center text-2xl mb-2 font-inter-normal leading-8 "
             :class="{ 'text-dark2': !isDark, 'text-light2': isDark }">
             Languages</h2>
-        <p class="text-center text-lg font-inter-normal leading-8 "
-            :class="{ 'text-dark1': !isDark, 'text-light1': isDark }">I'm proficient in these languages, each one a
-            versatile tool in its own right.</p>
+        <p class=" hidden md:block text-center text-lg font-inter-normal leading-8"
+            :class="{ 'text-dark1': !isDark, 'text-light1': isDark }">
+            I'm proficient in these languages, each one a versatile tool in its own right.
+        </p>
+
         <div
             class="logos group relative overflow-hidden whitespace-nowrap  py-10 [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)]">
             <div class="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
@@ -58,7 +60,7 @@
         <h2 class="text-center text-2xl mb-2 font-inter-normal leading-8 "
             :class="{ 'text-dark2': !isDark, 'text-light2': isDark }">
             Frameworks</h2>
-        <p class="text-center text-lg font-inter-normal leading-8 "
+        <p class=" hidden md:block text-center text-lg font-inter-normal leading-8 "
             :class="{ 'text-dark1': !isDark, 'text-light1': isDark }">My expertise extends to these frameworks, each one
             finely crafted to streamline development.</p>
         <div
@@ -113,7 +115,7 @@
         <h2 class="text-center text-2xl mb-2 font-inter-normal leading-8 "
             :class="{ 'text-dark2': !isDark, 'text-light2': isDark }">
             Tools</h2>
-        <p class="text-center text-lg font-inter-normal leading-8 "
+        <p class="hidden md:block text-center text-lg font-inter-normal leading-8 "
             :class="{ 'text-dark1': !isDark, 'text-light1': isDark }">I'm adept with these tools, each one a cornerstone
             in optimizing workflow and efficiency.</p>
         <div
