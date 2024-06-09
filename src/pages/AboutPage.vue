@@ -55,7 +55,7 @@
                     :class="{ 'text-light1': isDark, 'text-dark1': !isDark }">Completed Projects</h3>
             </div>
         </div>
-        <button-comp text="Download Resume"></button-comp>
+        <button-comp text="Download Resume" @click="clickHandler"></button-comp>
     </div>
 </template>
 
@@ -86,13 +86,17 @@ export default {
             if (isTablet) return 200
             return 250
         })
+        const clickHandler = () => {
+            window.open('https://firebasestorage.googleapis.com/v0/b/portfolio-b3f3a.appspot.com/o/Abhipray-Dumka.pdf?alt=media&token=e5e6e632-c45e-4abb-8bdf-1d7400f8df91', '_blank')
+        }
         return {
             isDark,
             ArduinoJSON,
             HillJSON,
             TattooJSON,
             BeerJSON,
-            computedSize
+            computedSize,
+            clickHandler
         };
     },
 };
