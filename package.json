@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@growthbunker/vuetimeline": "^0.1.17",
     "@vueuse/core": "^10.10.0",
     "swiper": "^11.1.4",

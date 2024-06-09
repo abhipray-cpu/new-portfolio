@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel mt-10">
+  <div class="carousel">
     <ul class="carousel__list" @click="handleClick">
       <li v-for="(item, index) in items" :key="index" class="carousel__item" :data-pos="item.pos"
         :class="{ carousel__item_active: item.pos === 0 }">
@@ -59,7 +59,6 @@ export default {
 .carousel {
   display: flex;
   width: 100%;
-  height: 100%;
   align-items: center;
   font-family: Arial;
 }

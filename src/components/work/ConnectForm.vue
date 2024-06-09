@@ -4,38 +4,81 @@
             Let's
             Connect
         </h2>
-        <input type="text"
-            class="w-[90vw] md:w-[30vw] h-[10vh] md:h-[8vh] rounded-md bg-slate-700 border-none focus:outline-none font-inter-normal text-gray-200 px-4 font-normal text-lg md:text-xl"
-            placeholder="Name" v-model="name">
-        <input type="text"
-            class="w-[90vw] md:w-[30vw] h-[10vh] md:h-[8vh] rounded-md bg-slate-700 focus:outline-none font-inter-normal text-gray-200 px-4 font-normal text-lg md:text-xl"
-            placeholder="Email" v-model="email">
-        <input type="text"
-            class="w-[90vw] md:w-[30vw] h-[10vh] md:h-[8vh] rounded-md bg-slate-700 focus:outline-none font-inter-normal text-gray-200 px-4 font-normal text-lg md:text-xl"
-            placeholder="Contact" v-model="contact">
-        <textarea name="" id=""
-            class="w-[90vw] md:w-[30vw] h-[15vh] md:h-[12vh] rounded-md bg-slate-700 focus:outline-none font-inter-normal text-gray-200 px-4 py-2 font-normal text-lg md:text-xl"
-            v-model="message" placeholder="Message"></textarea>
+        <div v-if="cheer" class="md:-ml-28">
+            <Vue3Lottie :animationData="CheerJSON" :height="400" :width="400" :loop="true" :autoplay="true" speed="1" />
+        </div>
+        <form ref="form" class="flex flex-col gap-6" v-else>
+            <input type="text"
+                class="w-[90vw] md:w-[30vw] h-[10vh] md:h-[8vh] rounded-md bg-slate-700 border-none focus:outline-none font-inter-normal text-gray-200 px-4 font-normal text-lg md:text-xl"
+                placeholder="Name" v-model="name" name="user_name">
+            <input type="text"
+                class="w-[90vw] md:w-[30vw] h-[10vh] md:h-[8vh] rounded-md bg-slate-700 focus:outline-none font-inter-normal text-gray-200 px-4 font-normal text-lg md:text-xl"
+                placeholder="Email" v-model="email" name="user_email">
+            <input type="text"
+                class="w-[90vw] md:w-[30vw] h-[10vh] md:h-[8vh] rounded-md bg-slate-700 focus:outline-none font-inter-normal text-gray-200 px-4 font-normal text-lg md:text-xl"
+                placeholder="Contact" v-model="contact" name="message">
+            <textarea name="" id=""
+                class="w-[90vw] md:w-[30vw] h-[15vh] md:h-[12vh] rounded-md bg-slate-700 focus:outline-none font-inter-normal text-gray-200 px-4 py-2 font-normal text-lg md:text-xl"
+                v-model="message" placeholder="Message"></textarea>
+        </form>
 
-        <button-comp text="Send"></button-comp>
+        <button-comp text="Send" @click="sendEmail"></button-comp>
     </div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import ButtonComp from '../../slots/ButtonSlot.vue'
+import emailjs from '@emailjs/browser';
+import { Vue3Lottie } from "vue3-lottie";
+import CheerJSON from '../../assets/lottie/Success.json'
 export default {
-    components: { ButtonComp },
+    components: { ButtonComp, Vue3Lottie },
     setup() {
         const name = ref('');
         const email = ref('');
         const contact = ref('');
         const message = ref('');
+        const show = ref(false)
+        const form = ref(null);
+        const cheer = computed(() => {
+            return show.value;
+        })
+        const toggle = () => {
+            show.value = true;
+            setTimeout(() => {
+                show.value = false
+            }, 2000)
+        }
+        const sendEmail = () => {
+            if (name.value !== '' && email.value !== '' && contact.value !== '' && message.value != '') {
+                emailjs
+                    .sendForm('service_fph93rk', 'template_88lwdjw', form.value, {
+                        publicKey: 'lmVfpFdCb2s6x_SqC',
+                    })
+                    .then(
+                        () => {
+                            email.value = ''
+                            name.value = ''
+                            contact.value = ''
+                            message.value = ''
+                            toggle()
+                        },
+                        (error) => {
+                            console.log(error)
+                        },
+                    );
+            }
+        }
         return {
             name,
             email,
             contact,
-            message
+            message,
+            sendEmail,
+            form,
+            cheer,
+            CheerJSON
         }
     },
 }
