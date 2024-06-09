@@ -6,16 +6,17 @@
         </h2>
         <input type="text"
             class="w-[90vw] md:w-[30vw] h-[10vh] md:h-[8vh] rounded-md bg-slate-700 border-none focus:outline-none font-inter-normal text-gray-200 px-4 font-normal text-lg md:text-xl"
-            v-model="name">
+            placeholder="Name" v-model="name">
         <input type="text"
             class="w-[90vw] md:w-[30vw] h-[10vh] md:h-[8vh] rounded-md bg-slate-700 focus:outline-none font-inter-normal text-gray-200 px-4 font-normal text-lg md:text-xl"
-            v-model="email">
+            placeholder="Email" v-model="email">
         <input type="text"
             class="w-[90vw] md:w-[30vw] h-[10vh] md:h-[8vh] rounded-md bg-slate-700 focus:outline-none font-inter-normal text-gray-200 px-4 font-normal text-lg md:text-xl"
-            v-model="contact">
+            placeholder="Contact" v-model="contact">
         <textarea name="" id=""
             class="w-[90vw] md:w-[30vw] h-[15vh] md:h-[12vh] rounded-md bg-slate-700 focus:outline-none font-inter-normal text-gray-200 px-4 py-2 font-normal text-lg md:text-xl"
-            v-model="message"></textarea>
+            v-model="message" placeholder="Message"></textarea>
+
         <button-comp text="Send"></button-comp>
     </div>
 </template>

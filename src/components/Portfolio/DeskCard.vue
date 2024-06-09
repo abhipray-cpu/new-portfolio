@@ -1,35 +1,24 @@
 <template>
   <div id="slider-container">
     <div id="main-slider">
-      <div
-        v-for="(slide, index) in slides"
-        :key="index"
-        :id="'side-' + (index + 1)"
-        class="slide card"
-        :class="{ active: activeSlide === index + 1 }"
-        :style="getSlideStyle(index + 1)"
-      >
+      <div v-for="(slide, index) in slides" :key="index" :id="'side-' + (index + 1)" class="slide card"
+        :class="{ active: activeSlide === index + 1 }" :style="getSlideStyle(index + 1)">
         <img class="card-img-top" :src="slide.imgSrc" />
         <div class="card-body">
           <h5 class="card-title">{{ slide.title }}</h5>
           <p class="card-text">{{ slide.text }}</p>
           <div class="text-center">
-            <a class="btn-contact" href="javascript:void(0)">Demo</a>
+            <a class="btn-contact" href="javascript:void(0)" @click="clickHandler(slide.link)">Demo</a>
           </div>
         </div>
       </div>
     </div>
     <div class="slide-indicator-container">
-      <div
-        v-for="(slide, index) in slides"
-        :key="'indicator-' + index"
-        :class="[
-          'slide-indicator',
-          'indicator-' + (index + 1),
-          { active: activeSlide === index + 1 },
-        ]"
-        @click="goToSlide(index + 1)"
-      ></div>
+      <div v-for="(slide, index) in slides" :key="'indicator-' + index" :class="[
+        'slide-indicator',
+        'indicator-' + (index + 1),
+        { active: activeSlide === index + 1 },
+      ]" @click="goToSlide(index + 1)"></div>
     </div>
     <div class="slider-controls">
       <div id="pre" class="slider-btn" @click="prevSlide">Prev</div>
@@ -46,57 +35,67 @@ export default {
       slides: [
         {
           imgSrc:
-            "https://images.pexels.com/photos/2880506/pexels-photo-2880506.jpeg?auto=compress&cs=tinysrgb&h=350",
-          title: "Card 1",
+            "https://firebasestorage.googleapis.com/v0/b/portfolio-b3f3a.appspot.com/o/images%2Fyelli-1.png?alt=media&token=2dd04acf-ac81-4628-84c6-4f2b8b2424a8",
+          title: "Shoe Store",
           text:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias delectus quos!",
+            "An online responsive shoe store inspired bt NIKE online shoe store, it is based on material design and is built using firebase,vue and vuetify",
+          link: "https://yeli-shoes.pages.dev/"
         },
         {
           imgSrc:
-            "https://images.pexels.com/photos/2880506/pexels-photo-2880506.jpeg?auto=compress&cs=tinysrgb&h=350",
-          title: "Card 2",
+            "https://firebasestorage.googleapis.com/v0/b/portfolio-b3f3a.appspot.com/o/images%2Ffacility%20desktop.png?alt=media&token=1256e593-3164-4762-a71b-96d2e7cf32c0",
+          title: "Facility Finder",
           text:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias delectus quos!",
+            "A server rendered full functional resposive app built using nodejs, this app helps user to find nearby facilities based on their current location",
+          link: "http://13.201.79.69:8081/"
         },
         {
           imgSrc:
-            "https://images.pexels.com/photos/2880506/pexels-photo-2880506.jpeg?auto=compress&cs=tinysrgb&h=350",
-          title: "Card 3",
+            "https://firebasestorage.googleapis.com/v0/b/portfolio-b3f3a.appspot.com/o/images%2Fsasta-IMDB.png?alt=media&token=415cae08-d643-442e-86da-49ca646473ce",
+          title: "IMDB Replica",
           text:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias delectus quos!",
+            "This is a replicas of IMDB built using DJANGO it has all the basic feature provided by the original platform,this is a server rendered app.",
+          link: "http://13.201.12.179:4000/"
         },
         {
           imgSrc:
-            "https://images.pexels.com/photos/2880506/pexels-photo-2880506.jpeg?auto=compress&cs=tinysrgb&h=350",
-          title: "Card 4",
+            "https://firebasestorage.googleapis.com/v0/b/portfolio-b3f3a.appspot.com/o/meteor.png?alt=media&token=bf0e5c74-76a9-46f7-b3f9-f89784851041",
+          title: "Meteor Mate",
           text:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias delectus quos!",
+            "This is a weather app with some other advanced measuring metrics built using reactjs and nodejs this is a responsive application",
+          link: "https://meteormate-d8fd.vercel.app/"
         },
         {
           imgSrc:
-            "https://images.pexels.com/photos/2880506/pexels-photo-2880506.jpeg?auto=compress&cs=tinysrgb&h=350",
-          title: "Card 5",
+            "https://firebasestorage.googleapis.com/v0/b/portfolio-b3f3a.appspot.com/o/images%2Finto-the-wild-2.png?alt=media&token=6fed654e-2bdd-4264-99f2-b90790cd6e8e",
+          title: "Into The Wild",
           text:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias delectus quos!",
+            "This is a website dedicated to my favorite movie INTO THE WILD",
+          link: "http://13.235.23.181:3000/"
         },
         {
           imgSrc:
-            "https://images.pexels.com/photos/2880506/pexels-photo-2880506.jpeg?auto=compress&cs=tinysrgb&h=350",
-          title: "Card 6",
+            "https://firebasestorage.googleapis.com/v0/b/portfolio-b3f3a.appspot.com/o/Geeta.png?alt=media&token=2653174e-f7b0-4898-b8b8-5861048a9623",
+          title: "Geeta",
           text:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias delectus quos!",
+            "For all the spiritual people out there this is a catalog containing all the verses of geeta  with both hindi and english translation",
+          link: "https://geeta-rho.vercel.app/"
         },
         {
           imgSrc:
-            "https://images.pexels.com/photos/2880506/pexels-photo-2880506.jpeg?auto=compress&cs=tinysrgb&h=350",
-          title: "Card 7",
+            "https://firebasestorage.googleapis.com/v0/b/portfolio-b3f3a.appspot.com/o/images%2Ftext-editor1.png?alt=media&token=9958a023-16b7-4fe6-bb44-e5d06030a833",
+          title: "Text Editor",
           text:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias delectus quos!",
+            "This a desktop application built upon QT platform, it is a replica of the classic windows text editor with all the features",
+          link: "https://firebasestorage.googleapis.com/v0/b/portfolio-b3f3a.appspot.com/o/text-editor.exe?alt=media&token=26862a13-8532-4e27-9145-8a7834de0280"
         },
       ],
     };
   },
   methods: {
+    clickHandler(value) {
+      window.open(value, '_blank')
+    },
     getSlideStyle(slideIndex) {
       let centerSlide = this.activeSlide;
       let numSlides = this.slides.length;
@@ -144,7 +143,7 @@ body {
 }
 
 #slider-container {
-  max-height: 100vh;
+  max-height: 80vh;
 }
 
 #main-slider {
@@ -156,7 +155,7 @@ body {
 }
 
 #main-slider .slide {
-  height: auto;
+  height: 40vh;
   width: 18rem;
   transition: all 0.5s;
   background-color: #ffffff;
@@ -190,6 +189,7 @@ body {
 
 .slide.active img {
   filter: none;
+  height: 20vh;
 }
 
 .slide.active .card-body p {

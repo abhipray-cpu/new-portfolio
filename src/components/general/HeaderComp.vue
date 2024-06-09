@@ -3,21 +3,20 @@
         <h2 class="text-4xl text-white ml-3 icon font-ingrid">Dumka</h2>
         <div class="flex flex-row justify-between ml-[25vw] gap-5 pt-1 ">
             <h3 :class="{ 'text-light1 hover:text-light2': isDarkTheme, 'text-dark1 hover:text-dark2': !isDarkTheme }"
-                class="text-lg font-inter-normal cursor-pointer hover:text-xl">Home</h3>
+                class="text-lg font-inter-normal cursor-pointer hover:text-xl" @click="goto(0)">Home</h3>
             <h3 :class="{ 'text-light1 hover:text-light2': isDarkTheme, 'text-dark1 hover:text-dark2': !isDarkTheme }"
-                class="text-lg font-inter-normal cursor-pointer hover:text-xl">About</h3>
+                class="text-lg font-inter-normal cursor-pointer hover:text-xl" @click="goto(1)">About</h3>
             <h3 :class="{ 'text-light1 hover:text-light2': isDarkTheme, 'text-dark1 hover:text-dark2': !isDarkTheme }"
-                class="text-lg font-inter-normal cursor-pointer hover:text-xl">Skills</h3>
+                class="text-lg font-inter-normal cursor-pointer hover:text-xl" @click="goto(2)">Skills</h3>
             <h3 :class="{ 'text-light1 hover:text-light2': isDarkTheme, 'text-dark1 hover:text-dark2': !isDarkTheme }"
-                class="text-lg font-inter-normal cursor-pointer hover:text-xl">
+                class="text-lg font-inter-normal cursor-pointer hover:text-xl" @click="goto(3)">
                 Qualification
             </h3>
             <h3 :class="{ 'text-light1 hover:text-light2': isDarkTheme, 'text-dark1 hover:text-dark2': !isDarkTheme }"
-                class="text-lg font-inter-normal cursor-pointer hover:text-xl">Method</h3>
+                class="text-lg font-inter-normal cursor-pointer hover:text-xl" @click="goto(4)">Work</h3>
+
             <h3 :class="{ 'text-light1 hover:text-light2': isDarkTheme, 'text-dark1 hover:text-dark2': !isDarkTheme }"
-                class="text-lg font-inter-normal cursor-pointer hover:text-xl">Work</h3>
-            <h3 :class="{ 'text-light1 hover:text-light2': isDarkTheme, 'text-dark1 hover:text-dark2': !isDarkTheme }"
-                class="text-lg font-inter-normal cursor-pointer hover:text-xl">Contact</h3>
+                class="text-lg font-inter-normal cursor-pointer hover:text-xl" @click="goto(5)">Contact</h3>
             <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                 v-if="!isDarkTheme" class="cursor-pointer" @click="toggleTheme">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -59,25 +58,26 @@
     </div>
 </template>
 
+
 <script>
-
-import { useStore } from 'vuex';
-import { computed } from 'vue'
 export default {
-    setup() {
-        const store = useStore();
-        const isDarkTheme = computed(() => store.getters.getTheme === 'dark');
-        const toggleTheme = () => {
-            store.commit('setTheme')
+    computed: {
+        isDarkTheme() {
+            return this.$store.getters['getTheme'] === 'dark'
         }
-        return {
-            isDarkTheme,
-            toggleTheme
-        }
-
     },
-};
+    methods: {
+        toggleTheme() {
+            this.$store.commit('setTheme')
+        },
+        goto(val) {
+            this.$store.commit('setPage', val)
+        }
+    }
+}
 </script>
+
+
 
 <style scoped>
 .icon {

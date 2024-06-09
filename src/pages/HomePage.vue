@@ -55,7 +55,7 @@
           creativity.
         </h3>
         <div class="flex flex-row items-center">
-          <button-comp text="Let's Connect"></button-comp>
+          <button-comp text="Let's Connect" @click="handleClick"></button-comp>
           <Vue3Lottie :animationData="RobotJSON" :height="100" :width="100" :loop="true" :autoplay="true" speed="2" />
         </div>
       </section>
@@ -71,7 +71,7 @@
 import ImageComp from "../components/home/ImageComp.vue";
 import IconComp from "../slots/IconSlot.vue";
 import ButtonComp from "../slots/ButtonSlot.vue";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { Vue3Lottie } from "vue3-lottie";
 import RobotJSON from "../assets/lottie/Robot.json";
@@ -83,14 +83,21 @@ export default {
     const isDark = computed(() => {
       return store.getters.getTheme === "dark";
     });
+    onMounted(() => {
+      store.commit('setPage', 0)
+    })
     const toggle = () => {
       store.commit('setTheme')
+    }
+    const handleClick = () => {
+      store.commit('setPage', 5)
     }
     return {
       isDark,
       RobotJSON,
       CatJSON,
-      toggle
+      toggle,
+      handleClick
     };
   },
 };

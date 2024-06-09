@@ -7,33 +7,47 @@
     <cursor-highlight />
     <div class="dot" ref="dot"></div>
     <header-comp></header-comp>
-    <home-page></home-page>
-    <about-page></about-page>
-    <skills-page></skills-page>
-    <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
-      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7">
-      Qualifications
-    </h1>
-    <qualification-page></qualification-page>
-    <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
-      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7">
-      Work Experience
-    </h1>
-    <experience-page></experience-page>
-    <work-page></work-page>
-    <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
-      class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-6 md:mt-12 md:mb-7">
-      My Projects
-    </h1>
-    <portfolio-page></portfolio-page>
-    <connect-page></connect-page>
+    <div ref="firstPage">
+      <home-page></home-page>
+    </div>
+    <div ref="secondPage">
+      <about-page></about-page>
+    </div>
+    <div ref="thirdPage">
+      <skills-page></skills-page>
+    </div>
+    <div ref="fourthPage">
+      <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
+        class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7">
+        Qualifications
+      </h1>
+      <qualification-page></qualification-page>
+      <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
+        class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-5 md:mt-12 md:mb-7">
+        Work Experience
+      </h1>
+      <experience-page></experience-page>
+    </div>
+
+    <div ref="fifthPage">
+      <work-page></work-page>
+      <h1 :class="{ 'text-dark2': !isDarkTheme, 'text-light2': isDarkTheme }"
+        class="font-inter-bold text-2xl md:text-5xl tracking-wider text-center mt-5 mb-6 md:mt-12 md:mb-7">
+        My Projects
+      </h1>
+      <portfolio-page></portfolio-page>
+    </div>
+
+    <div ref="sixthPage">
+      <connect-page></connect-page>
+    </div>
     <count-down></count-down>
   </div>
 </template>
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref, onMounted } from "vue";
+import { computed, ref, onMounted, watch } from "vue";
 import HeaderComp from "./components/general/HeaderComp.vue";
 import HomePage from "./pages/HomePage.vue";
 import AboutPage from "./pages/AboutPage.vue";
@@ -129,12 +143,51 @@ export default {
         "rgb(" + dotCloneColorR + ", " + dotCloneColorG + ", " + dotCloneColorB + ")"
       );
     };
+    const firstPage = ref(null);
+    const secondPage = ref(null)
+    const thirdPage = ref(null)
+    const fourthPage = ref(null)
+    const fifthPage = ref(null)
+    const sixthPage = ref(null)
+    const getterValue = computed(() => store.getters.getPage);
+    watch(getterValue, (newValue, oldValue) => {
+      console.log(newValue);
+      switch (newValue) {
+        case 0:
+          firstPage.value.scrollIntoView({ behavior: 'smooth' });
+          break;
+        case 1:
+          secondPage.value.scrollIntoView({ behavior: 'smooth' });
+          break;
+        case 2:
+          thirdPage.value.scrollIntoView({ behavior: 'smooth' });
+          break;
+        case 3:
+          fourthPage.value.scrollIntoView({ behavior: 'smooth' });
+          break;
+        case 4:
+          fifthPage.value.scrollIntoView({ behavior: 'smooth' });
+          break;
+        case 5:
+          sixthPage.value.scrollIntoView({ behavior: 'smooth' });
+          break;
+        default:
+          firstPage.value.scrollIntoView({ behavior: 'smooth' });
+          break;
+      }
+    });
 
     return {
       dot,
       isDarkTheme,
       WelcomeJSON,
       Welcome,
+      firstPage,
+      secondPage,
+      thirdPage,
+      fourthPage,
+      fifthPage,
+      sixthPage
     };
   },
 };
