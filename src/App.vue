@@ -151,7 +151,6 @@ export default {
     const sixthPage = ref(null)
     const getterValue = computed(() => store.getters.getPage);
     watch(getterValue, (newValue, oldValue) => {
-      console.log(newValue);
       switch (newValue) {
         case 0:
           firstPage.value.scrollIntoView({ behavior: 'smooth' });
