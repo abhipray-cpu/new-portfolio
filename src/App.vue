@@ -2,7 +2,7 @@
   <div v-if="Welcome" class="w-100 h-100 flex flex-col items-center justify-center">
     <Vue3Lottie :animationData="WelcomeJSON" :height="400" :width="400" :loop="true" :autoplay="true" speed="2" />
   </div>
-  <div class="main-container absolute inset-0 top-0 left-0 overflow-x-hidden w-full flex flex-col pb-10 md:pb-20"
+  <div class="main-container absolute inset-0 top-0 left-0 overflow-x-hidden w-full flex flex-col"
     :class="{ 'bg-light': isDarkTheme, 'bg-dark': !isDarkTheme }" v-else>
     <cursor-highlight />
     <div class="dot" ref="dot"></div>
@@ -27,6 +27,7 @@
     </h1>
     <portfolio-page></portfolio-page>
     <connect-page></connect-page>
+    <count-down></count-down>
   </div>
 </template>
 
@@ -44,6 +45,7 @@ import PortfolioPage from "./pages/PortfolioPage.vue";
 import { Vue3Lottie } from "vue3-lottie";
 import WelcomeJSON from "./assets/lottie/Welcome.json";
 import ConnectPage from "./pages/ConnectPage.vue";
+import CountDown from './components/general/CountDown.vue'
 export default {
   components: {
     HeaderComp,
@@ -55,6 +57,7 @@ export default {
     PortfolioPage,
     ConnectPage,
     WorkPage,
+    CountDown,
     Vue3Lottie,
   },
   setup() {

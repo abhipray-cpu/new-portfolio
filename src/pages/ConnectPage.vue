@@ -4,13 +4,13 @@
             :class="{ 'text-light2': isDark, 'text-dark2': !isDark }">
             Contact
         </h1>
-        <div class="w-full bg-[#031625] min-h-[50vh] mt-3 md:md-8 flex flex-col md:flex-row">
+        <div class="w-full bg-[#031625] min-h-[50vh] mt-3 md:md-8 flex flex-col md:flex-row pb-10">
             <div class="flex flex-row items-center mt-10">
                 <div class="hidden md:block">
                     <Vue3Lottie :animationData="HandJSON" :height="size" :width="size" :loop="true" :autoplay="true"
                         speed="1" />
                 </div>
-                <div class="flex flex-col items-start justify-center ml-4 gap-5 md:gap-8 ">
+                <div class="flex flex-col items-start justify-center ml-4 gap-5 md:gap-8 md:ml-20 ">
                     <div class="flex flex-row items-center justify-center">
                         <Vue3Lottie :animationData="MailJSON" :height="size2" :width="size2" :loop="true"
                             :autoplay="true" speed="1" />
@@ -24,15 +24,17 @@
                         <h2 class="font-inter font-bold tracking-wider text-lg md:text-xl text-blue-700 ">+91-7895724996
                         </h2>
                     </div>
+
                     <div class="flex flex-row items-center justify-center">
-                        <Vue3Lottie :animationData="WhatsappJSON" :height="size2" :width="size2" :loop="true"
+                        <Vue3Lottie :animationData="LocationJSOn" :height="size2" :width="size2" :loop="true"
                             :autoplay="true" speed="1" />
-                        <h2 class="font-inter font-bold tracking-wider text-lg md:text-xl text-blue-700">+91-7895724996
+                        <h2 class="font-inter font-bold tracking-wider text-lg md:text-xl text-blue-700">
+                            Haldwani,India
                         </h2>
                     </div>
                 </div>
             </div>
-            <div></div>
+            <connect-form></connect-form>
         </div>
     </div>
 </template>
@@ -45,9 +47,11 @@ import HandJSON from '../assets/lottie/Contact.json'
 import WhatsappJSON from '../assets/lottie/whatsapp.json'
 import MailJSON from '../assets/lottie/mail.json'
 import CallJSON from '../assets/lottie/call.json'
+import LocationJSOn from '../assets/lottie/Location.json'
 import { useMediaQuery } from '@vueuse/core';
+import ConnectForm from '../components/work/ConnectForm.vue'
 export default {
-    components: { Vue3Lottie },
+    components: { Vue3Lottie, ConnectForm },
     setup() {
         const store = useStore()
         const isDark = computed(() => {
@@ -72,6 +76,7 @@ export default {
             WhatsappJSON,
             MailJSON,
             CallJSON,
+            LocationJSOn,
             size,
             size2
         }
